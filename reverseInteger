@@ -1,0 +1,39 @@
+/**
+ * @param {number} x
+ * @return {number}
+ */
+
+    var reverseInteger = function(x){
+        var r = 0;
+        var l = x;
+        while(Math.floor(l/10)){
+            r=l%10+r*10
+            l=Math.floor(l/10)
+        }
+        r=l%10+r*10
+        // l=Math.floor(l/10)这里的l值可以不用计算
+        return r;        
+    } 
+    //将给定范围内的整数反转的方法
+
+    var reverse = function(x){
+        if(isNaN(x)||(Math.abs(x)) > (Math.pow(2,31))){
+            return null
+        }
+        else if(x == 0){
+            return 0
+        }
+        else{
+            var result = reverseInteger(Math.abs(x))
+            if(result>Math.pow(2,31)){
+                return 0
+            }else if(x > 0){
+                return result
+            }else{
+                return (-result)
+            }
+            
+        }
+    }
+    //情况分为非数值，超出给定数值范围和可反转三种情况，其中可反转又可以分为反转后超出数值范围，
+    // 为正数，为负数三种情况
