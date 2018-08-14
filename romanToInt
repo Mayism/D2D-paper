@@ -1,0 +1,31 @@
+// IV其实就是在V的基础上减去了1，对于XL同理那么可先将罗马数字转换为对象，判断是否有类似IV字符
+// 出现，有则减去对应的数值
+
+var romanToInt = function(s) {
+    var set = {
+        "I" : 1,
+        "V" : 5,
+        "X" : 10,
+        "L" : 50,
+        "C" : 100,
+        "D" : 500,
+        "M" : 1000
+    }
+    
+    if(!s){
+        return 0
+    }
+    var arr = s.split("")
+    var index, next
+    var x = 0
+    for(var i=0;i<arr.length;i++){
+        index = arr[i]
+        next = arr[i+1]
+        if((index == "I" || index == "X" || index == "C") && set[index] < set[next] ){
+            x= x-set[index]
+        }else{
+            x= x+set[index]
+        }
+    }
+    return x
+};
