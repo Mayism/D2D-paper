@@ -1,0 +1,19 @@
+var isPalindrome = function(x) {
+   if(isNaN(x) ||(Math.abs(x)) > (Math.pow(2,31))){
+       return false
+   }else if(x<0 || x!=0 && x%10 == 0){
+       return false
+   }else{
+       var r=0
+       var l=x
+       while(l>r){
+           r=l%10+r*10
+           l=Math.floor(l/10)//将数字x进行反转
+       }
+       if(r==l||l==Math.floor(r/10)){//分别是奇数位和偶数位的反转
+           return true
+       }else{
+           return false
+       }
+   }
+};
