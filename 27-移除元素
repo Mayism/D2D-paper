@@ -1,0 +1,15 @@
+// 思路:从第一个元素开始进行比较，相等则赋值，i++跳转到下一个未比较元素;不相等则将下一个元素赋给比较元素
+var removeElement = function(nums, val) {
+    if(nums.length ==0){return 0}
+    var len = nums.length
+    var num =0
+    for(var i=0;i<len;i++){
+        if(nums[i]!=val){
+            nums[num]=nums[i]
+            num++
+        }else{
+            nums[num]=nums[i+1]
+        }
+    }
+    return num
+};
