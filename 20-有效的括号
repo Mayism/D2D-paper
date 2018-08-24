@@ -1,0 +1,25 @@
+//分别给左括号的右括号指定相反的值，利用大小于零的方式结合栈的思想完成匹配
+var isValid = function(s) {
+    let map = {
+        '(':1,
+        ')':-1,
+        '[':2,
+        ']':-2,
+        '{':3,
+        '}':-3
+    }
+    
+    let stack = []
+    for(var i =0;i<s.length;i++){
+        if(map[s[i]]>0){
+            stack.push(s[i])
+        }else{
+            let last = stack.pop()
+            if(map[s[i]]+map[last] !=0){
+                return false
+            }
+        }
+    }
+    if(stack.length>0) return false;
+    return true
+};
