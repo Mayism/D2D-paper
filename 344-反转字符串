@@ -1,0 +1,7 @@
+//思路：先将字符串转换成数组，将数组元素反转之后，再将其转换为字符串
+var reverseString = function(s) {
+        var arr = s.split("");
+        var newArr = arr.reverse();
+        return newArr.join("");
+    
+};
