@@ -1,0 +1,23 @@
+//思路：题意要求在原地删除，故只能在原数组上操作
+//有两种方法：第一种是定义变量i，同时遍历数组，当nums[i]和遍历数组相等时，i自增，注意要将自增后的nums[i]赋给原数组值，保证数组不重复
+//第二种是遍历后比较相邻两元素，相同则删除，注意自减，因为循环会自增
+var removeDuplicates = function(nums) {
+    // if(nums.length == 0) return 0;
+    // var i=0;
+    // for(var j=0;j<nums.length;j++){
+    //    if(nums[i]!=nums[j]){
+    //        i++
+    //        nums[i] = nums[j]
+    //    }
+    // }
+    // return i+1
+    
+    //第二种解法:更好理解
+    for(var i=0;i<nums.length;i++){
+        if(nums[i]==nums[i+1]){
+            nums.splice(i,1)
+            i--
+        }
+    }
+    return nums.length
+};
