@@ -1,0 +1,15 @@
+
+// 题目: 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+
+//  思路: 在其他数字都是成对出现的情况下，单独出现的数字的第一出现的索引和最后一次出现的索引是相同的
+var singleNumber = function(nums) {
+    for(var i=0;i<nums.length;i++){
+        if(nums.indexOf(nums[i]) == nums.lastIndexOf(nums[i])){
+            return nums[i];
+        }
+    }   
+};
