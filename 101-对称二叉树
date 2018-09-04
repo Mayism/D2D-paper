@@ -1,0 +1,31 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isSymmetric = function(root) {
+    function TreeNode(val){
+        this.val = val;
+        this.left = this.right = null;
+    }
+    
+    if(root == null ) return true;
+    return isSym(root.left,root.right);
+    
+    function isSym(leftTree, rightTree){
+        if(leftTree == null && rightTree == null) return true;
+        if(leftTree == null || rightTree == null) return false;
+        if(leftTree.val == rightTree.val){
+            //在根节点相同的情况下，想象一下镜像二叉树的特点
+            return isSym(leftTree.left,rightTree.right)&&isSym(leftTree.right,rightTree.left);
+        }else{
+            return false;
+        }
+    }
+};
