@@ -1,0 +1,36 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+ //思路:参考在不引入新的数组的情况下删除重复项的方法，只是这里换成了链表
+var deleteDuplicates = function(head) {
+    function ListNode(val){
+        this.val=val;
+        this.next=null;
+    }
+    
+    //链表长度分别为0和1时候，不操作，执行本身
+    if(!head) return head;
+    if(!head.next) return head;
+    
+    var pre = head;
+    var cur = head.next;
+    while(cur){
+        if(pre.val == cur.val){
+            pre.next = cur.next;
+            //删除cur的操作，自动将指针指向下下一位
+        }else{
+            pre = cur;
+            //顺序比较下一位
+        }
+        cur = cur.next;//每次比较后
+    }
+    return head;
+};
