@@ -1,0 +1,12 @@
+//题干意思是将nums2的元素加入到nums1中，添加完毕之后数组需要是有序的，那么需要使用可修改数组的方法。--选splice不选slice
+//排序的话选择简单的sort方法就ok
+var merge = function(nums1, m, nums2, n) {
+    //分别取得nums1和nums2的前m和前n项
+    nums1.splice(m);
+    nums2.splice(n);
+    
+    nums1.push(...nums2);
+    
+    nums1.sort();
+     
+};
