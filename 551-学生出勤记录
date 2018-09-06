@@ -1,0 +1,19 @@
+var checkRecord = function(s) {
+    //思路：共有两种情况不会被奖赏：A的数目大于1，L的个数大于二，分别检测这两种情况就行
+    var len = s.length;
+    var countA = 0;
+    var countL = 0;
+    for(var i=0;i<len;i++){
+        if(s[i] == "A"){
+            countA ++;
+            if(countA > 1){
+                return false;
+            }
+        }else if(s[i+2] == "L" && s[i+1] == "L" && s[i] == "L"){
+            if(i+2 < len){
+                return false;
+            }
+        }
+    }
+    return true;
+};
