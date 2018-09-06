@@ -1,0 +1,20 @@
+//第一点是要求得最大子序列和肯定是要遍历数组的
+//在当前节点遍历到下一个节点的过程中，如果与下一个元素相加是大于当前值的话，那么就将最大值更新，如果不是则保留当前值
+var maxSubArray = function(nums) {
+    if(nums.length == 0) return 0;
+    var curSum = nums[0];
+    var sum = nums[0];
+    for(var i=1;i<nums.length;i++){
+        if(nums[i] > curSum + nums[i]){//后序相加，判断是否需要进位
+            curSum = nums[i]
+        }else{
+            curSum = curSum + nums[i];
+        }
+        
+        if(curSum > sum){
+            sum = curSum;
+        }
+    }
+    return sum;
+    
+};
